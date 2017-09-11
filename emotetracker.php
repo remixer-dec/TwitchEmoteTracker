@@ -5,7 +5,6 @@ function trackEmotes(){
   global $removed; global $added; global $changed; global $pics; global $CLIENTID;
   $ttv=file_get_contents('https://api.twitch.tv/kraken/chat/global/emoticons?client_id='.$CLIENTID);
   $bttv=file_get_contents('https://api.betterttv.net/2/emotes');
-  $txt ="";
   $ttv=json_decode($ttv)->emoticons;
   $bttv=json_decode($bttv)->emotes;
   $thash=md5(serialize($ttv));
@@ -38,7 +37,7 @@ function trackEmotes(){
         }
       }
       if(!$fn){//if an emote was not in the list
-   	    array_push($added,$v->regex);
+        array_push($added,$v->regex);
         array_push($pics, $v->url);
       }
     }
@@ -48,7 +47,7 @@ function trackEmotes(){
       }
     }
     if(!$fn){
-   	  array_push($removed,$v->regex);
+      array_push($removed,$v->regex);
       array_push($pics, $v->url);
     }
     return 0;   
@@ -76,7 +75,7 @@ function trackEmotes(){
         }
       }
       if(!$fn){
-   	    array_push($added,$v->code."(BTTV)");
+        array_push($added,$v->code."(BTTV)");
         array_push($pics, 'https://cdn.betterttv.net/emote/'.$v->id.'/1x');
       }
     }
@@ -88,7 +87,7 @@ function trackEmotes(){
         }
       }
       if(!$fn){
-   	    array_push($removed,$v->code."(BTTV)");
+        array_push($removed,$v->code."(BTTV)");
         array_push($pics, 'https://cdn.betterttv.net/emote/'.$v->id.'/1x');
       }
     }
