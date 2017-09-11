@@ -109,13 +109,13 @@ function trackEmotes(){
     $t = '';
     $w = [["New","Removed","Changed"],["Добавлены","Удалены","Изменены"]];
     if($r != ""){
-       $t .= $w[$l][2].": ".$r.PHP_EOL;
+       $t .= $w[$l][1].": ".$r.PHP_EOL;
     }
     if($a != ""){
-      $t .= $w[$l][1].": ".$a.PHP_EOL;
+      $t .= $w[$l][0].": ".$a.PHP_EOL;
     }
     if($c != ""){
-      $t .= $w[$l][0].": ".$c.PHP_EOL;
+      $t .= $w[$l][2].": ".$c.PHP_EOL;
     }
     return $t;
   }

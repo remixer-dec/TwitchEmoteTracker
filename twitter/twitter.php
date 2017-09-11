@@ -13,7 +13,7 @@ function uploadToTwitter($pics,$text){
 	$connection = new TwitterOAuth(CONSUMER_KEY, CONSUMER_SECRET, $access_token, $access_token_secret);
 	$urlt = array_slice($pics,0,4);
 	$medias = [];
-	foreach($pics as $link){
+	foreach($urlt as $link){
 		array_push($medias,($connection->upload('media/upload', ['media' => $link])));
 	}
 	$mapped =  array_map(
